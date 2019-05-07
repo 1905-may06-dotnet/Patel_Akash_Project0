@@ -1,0 +1,11 @@
+C:\revature\Patel_Akash_Project0\bin\Debug\netcoreapp2.1\Patel_Akash_Project0.deps.json
+C:\revature\Patel_Akash_Project0\bin\Debug\netcoreapp2.1\Patel_Akash_Project0.runtimeconfig.json
+C:\revature\Patel_Akash_Project0\bin\Debug\netcoreapp2.1\Patel_Akash_Project0.runtimeconfig.dev.json
+C:\revature\Patel_Akash_Project0\bin\Debug\netcoreapp2.1\Patel_Akash_Project0.dll
+C:\revature\Patel_Akash_Project0\bin\Debug\netcoreapp2.1\Patel_Akash_Project0.pdb
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.csprojAssemblyReference.cache
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.csproj.CoreCompileInputs.cache
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.AssemblyInfoInputs.cache
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.AssemblyInfo.cs
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.dll
+C:\revature\Patel_Akash_Project0\obj\Debug\netcoreapp2.1\Patel_Akash_Project0.pdb
