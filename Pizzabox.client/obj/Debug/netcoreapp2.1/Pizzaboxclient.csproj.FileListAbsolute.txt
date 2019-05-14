@@ -1,0 +1,11 @@
+C:\Revature\Pizzabox.client\bin\Debug\netcoreapp2.1\Pizzaboxclient.deps.json
+C:\Revature\Pizzabox.client\bin\Debug\netcoreapp2.1\Pizzaboxclient.runtimeconfig.json
+C:\Revature\Pizzabox.client\bin\Debug\netcoreapp2.1\Pizzaboxclient.runtimeconfig.dev.json
+C:\Revature\Pizzabox.client\bin\Debug\netcoreapp2.1\Pizzaboxclient.dll
+C:\Revature\Pizzabox.client\bin\Debug\netcoreapp2.1\Pizzaboxclient.pdb
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.csproj.CoreCompileInputs.cache
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.AssemblyInfoInputs.cache
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.AssemblyInfo.cs
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.dll
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.pdb
+C:\Revature\Pizzabox.client\obj\Debug\netcoreapp2.1\Pizzaboxclient.csprojAssemblyReference.cache
