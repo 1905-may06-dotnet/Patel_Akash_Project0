@@ -12,3 +12,17 @@ C:\Revature\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.AssemblyInfoInput
 C:\Revature\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.AssemblyInfo.cs
 C:\Revature\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.dll
 C:\Revature\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.pdb
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Pizzaboxtest.deps.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Pizzaboxtest.runtimeconfig.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Pizzaboxtest.runtimeconfig.dev.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Pizzaboxtest.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\bin\Debug\netcoreapp2.1\Pizzaboxtest.pdb
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.csprojAssemblyReference.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.csproj.CoreCompileInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.AssemblyInfoInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.AssemblyInfo.cs
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.test\obj\Debug\netcoreapp2.1\Pizzaboxtest.pdb

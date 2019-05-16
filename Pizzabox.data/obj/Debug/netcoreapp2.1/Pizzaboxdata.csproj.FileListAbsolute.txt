@@ -9,3 +9,14 @@ C:\Revature\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.AssemblyInfoInput
 C:\Revature\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.AssemblyInfo.cs
 C:\Revature\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.dll
 C:\Revature\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.pdb
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\bin\Debug\netcoreapp2.1\Pizzaboxdata.deps.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\bin\Debug\netcoreapp2.1\Pizzaboxdata.runtimeconfig.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\bin\Debug\netcoreapp2.1\Pizzaboxdata.runtimeconfig.dev.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\bin\Debug\netcoreapp2.1\Pizzaboxdata.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\bin\Debug\netcoreapp2.1\Pizzaboxdata.pdb
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.csprojAssemblyReference.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.csproj.CoreCompileInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.AssemblyInfoInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.AssemblyInfo.cs
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.data\obj\Debug\netcoreapp2.1\Pizzaboxdata.pdb

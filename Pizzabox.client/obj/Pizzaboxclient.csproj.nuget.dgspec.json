@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Revature\\Pizzabox.client\\Pizzaboxclient.csproj": {}
+    "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.client\\Pizzaboxclient.csproj": {}
   },
   "projects": {
-    "C:\\Revature\\Pizzabox.client\\Pizzaboxclient.csproj": {
+    "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.client\\Pizzaboxclient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Revature\\Pizzabox.client\\Pizzaboxclient.csproj",
+        "projectUniqueName": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.client\\Pizzaboxclient.csproj",
         "projectName": "Pizzaboxclient",
-        "projectPath": "C:\\Revature\\Pizzabox.client\\Pizzaboxclient.csproj",
+        "projectPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.client\\Pizzaboxclient.csproj",
         "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
-        "outputPath": "C:\\Revature\\Pizzabox.client\\obj\\",
+        "outputPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

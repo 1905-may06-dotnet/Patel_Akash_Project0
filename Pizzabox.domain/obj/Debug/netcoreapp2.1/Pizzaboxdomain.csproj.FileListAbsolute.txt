@@ -9,3 +9,14 @@ C:\Revature\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.AssemblyInfo.
 C:\Revature\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.dll
 C:\Revature\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.pdb
 C:\Revature\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.csprojAssemblyReference.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.csprojAssemblyReference.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.csproj.CoreCompileInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.AssemblyInfoInputs.cache
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.AssemblyInfo.cs
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.pdb
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.deps.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.runtimeconfig.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.runtimeconfig.dev.json
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.dll
+C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.pdb

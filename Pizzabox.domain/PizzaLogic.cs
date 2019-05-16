@@ -3,27 +3,59 @@ using System.Collections.Generic;
 using Pizzaboxdomain;
 
 
-namespace Pizzabox.domain
+namespace Pizzaboxdomain
 {
     class Program
     {
         static void Main(string[] args)
         {
-           Console.WriteLine("Hello Pizza World!");
-           Pizza Piz = new Pizza();
-           Piz.OrderPizza();
-           Console.WriteLine($"Your pizza will cost ${Piz.GetPizzaCost(Piz)}");
-           // PizzaUser pizuse = new PizzaUser();
-           // PizzaLocation loc = new PizzaLocation();
-           // UserAccount user = new UserAccount();
-           // pizuse.CheckOrderConditions(user, loc);
-           // Console.WriteLine(pizuse.canorder);
+
+        Console.WriteLine("Hello, welcome to Pizza World!");
+        string tempstring; //used to check user input
+        PizzaUser use1 = new PizzaUser();
+             do
+             {
+                Console.WriteLine("Enter 1 to see available locations, 2 to view order history, or 3 to log out");
+                tempstring = Console.ReadLine();
+                 if (tempstring.Equals("1"))
+                 {
+                    PizzaLocations loc1 = new PizzaLocations();
+                    loc1.showLocations();
+                    PizzaLocations PizLocation = new PizzaLocations();
+                    String OrderLocation = PizLocation.selectLocation();
+                    PizzaOrder CustomerOrder = new PizzaOrder();
+                    CustomerOrder.Order();
+                }
+                 else if (tempstring.Equals("2"))
+                 {
+                     Console.WriteLine("viewing order history has not yet been implemented");
+                    Console.WriteLine("Enter 1 to see available locations, 2 to view order history, or 3 to log out");
+
+                }
+                else if (tempstring.Equals("3"))
+                 {
+                     use1.isLoggedin = false;
+                 }
+                 else
+                 {
+                     Console.WriteLine("you entered an incorrect value,Enter 1 to see available locations, 2 to view order history, or 3 to log out");
+                 }
+             }
+             while (!tempstring.Equals("3"));
+
+     
+            
         }
+
+
     }
     public class Pizza
     {
         public string size = "";
-        public enum toppingsAvailable {mushrooms, onions, bellpepper, spinache, jalepeno};
+        public List<string> toppingsAvailable = new List<string>
+        {
+            "mushrooms", "onions", "bellpepper", "spinache", "jalepeno"
+        };
         public enum pizzaSize { s = 1, m, l };
         public List<string> toppings = new List<string>();
         public int numToppings = 0;
@@ -65,15 +97,35 @@ namespace Pizzabox.domain
             return (sizecost + crustcost + toppingcost);
         }
 
+        public string showPizza()
+        {
+            string constring = ""; //string to contain list of all the toppings customer has ordered
+            foreach (string str in toppings)
+            {
+                constring += str + ", ";
+            }
+
+            return($"size: {size}, crust: {crust}, and toppings: {constring}");
+        }
+
         public void OrderPizza()
         {
             OrderSize();
             OrderCrust();
             OrderToppings();
+        }
 
-            
-
-
+        public void OrderLargeVegPizza()
+        {
+            size = "l";
+            crust = "l";
+            numToppings = 5;
+            toppings.Add("mushrooms");
+            toppings.Add("onions");
+            toppings.Add("bellpepper");
+            toppings.Add("spinache");
+            toppings.Add("jalepeno");
+           
         }
 
         public void OrderSize()
@@ -140,15 +192,6 @@ namespace Pizzabox.domain
             int i = 0; //used to list out the number of each topping
             bool cont = false; //boolean to determine if while loop to verify user input should continue
 
-            Console.WriteLine("Toppings Available");
-            
-            foreach (string str in Enum.GetNames(typeof(toppingsAvailable)))
-            {
-                
-                tempstring += i + " " + str + "| ";
-                i++;
-            }
-            Console.WriteLine(tempstring);
 
 
             //prompt user how many toppings they want
@@ -181,12 +224,54 @@ namespace Pizzabox.domain
             }
             while (cont);
 
-            // later on, when i need to actually know the toppings I need i will implement this
-            //Console.WriteLine("Please enter the specific toppings you want");
-
-
-
+            //Determine what toppings the user actually wants
             
+            //print available toppings to the user
+            Console.WriteLine("Toppings Available");
+            tempstring = ""; //initialize tempstring to empty
+            foreach (string str in toppingsAvailable)
+            {
+                tempstring += i + " " + str + "| ";
+                i++;
+            }
+            Console.WriteLine(tempstring);
+            Console.WriteLine("Please enter the number corresponding to the topping you want");
+
+            //loop and allow the user to choose their individual toppings
+            for (int I = 0; I<numToppings; I++)
+            {
+                do
+                {
+                    tempstring = Console.ReadLine();
+                    if (Int32.TryParse(tempstring, out tempint))
+                    {
+
+                        if (tempint >= 0 && tempint <= toppingsAvailable.Count-1)
+                        {
+                            toppings.Add(toppingsAvailable[tempint]);
+                            Console.WriteLine($"Topping {tempint}: {toppingsAvailable[tempint]}"); //show user numtoppings
+                            cont = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"You entered an incorrect value for the topping.  Please enter a number between 0 and {toppingsAvailable.Count-1}");
+                            cont = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"You entered an incorrect value for your topping.  Please enter a number between 0 and {toppingsAvailable.Count-1}");
+                        cont = true;
+                    }
+                }
+                while (cont);
+
+
+            }
+
+
+
+
         }
     }
 }

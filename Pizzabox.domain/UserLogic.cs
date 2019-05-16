@@ -6,17 +6,80 @@ namespace Pizzaboxdomain
 {
     class PizzaUser
     {
-        
+         
         //requirements      
         /*- should be able to view its order history <- this should be in data
        - should be able to only order from 1 location/day
        - should be able to only order 1 time within a 2 hour period
        - should be able to only order if an account exists*/
 
+        //properties of a user;
         public DateTime lastOrder = new DateTime(2019, 5, 13, 13, 0, 15);
         public bool canorder = false;
+        private string username = "";
+        private string password = "";
+        public bool isLoggedin = false;
 
-        public void CheckOrderConditions(UserAccount user, PizzaLocation loc)
+        //constructor, it asks the user to either register or log in.
+        public PizzaUser()
+        {
+            string tempstring = ""; // used to verify user input
+
+            Console.WriteLine("Please enter l to log in, or r to register");
+
+            do
+            {
+                tempstring = Console.ReadLine();
+                if (tempstring.Equals("l"))
+                {
+                    this.login();
+                }
+                else if (tempstring.Equals("r"))
+                {
+                    this.register();
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input, please enter r for register or l for login");
+                }
+            }
+            while (!(tempstring.Equals("r") || tempstring.Equals("l")));
+        }
+
+        //login a new user
+        public void login()
+        {
+            //this can't be fully implemented yet, but the idea is to use the username as a key
+            //and use that as a key to get the password in a hashtable or dictionary (which would be
+            //made in the data part).  Then, we would check to see if the password entered by the user 
+            //matches the password in the dictionary or hashtable.  If so, we successfully log in>
+            Console.WriteLine("Please enter your username");
+            username = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            password = Console.ReadLine();
+            Console.WriteLine("Login successful");
+            isLoggedin = true;
+        }
+
+        //register a new user
+        public void register()
+        {
+            Console.WriteLine("Please enter your username");
+            username = Console.ReadLine();
+            Console.WriteLine("Please enter your password");
+            password = Console.ReadLine();
+            Console.WriteLine("Register successful! You have also been logged in!");
+            isLoggedin = true;
+        }
+
+        public void logout()
+        {
+            isLoggedin = false;
+        }
+
+
+
+        public void CheckOrderConditions()
         {
             //initialize booleans to check all order conditions
             bool twohours = false;
@@ -38,7 +101,7 @@ namespace Pizzaboxdomain
             }
 
             //check to see if the user has an account
-            if(user!=null)
+            if(password!=null && username!=null)
             {
                 hasaccount = true;
             }

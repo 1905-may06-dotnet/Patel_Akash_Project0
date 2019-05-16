@@ -694,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\Pizzabox.domain\\Pizzaboxdomain.csproj",
+      "projectUniqueName": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.domain\\Pizzaboxdomain.csproj",
       "projectName": "Pizzaboxdomain",
-      "projectPath": "C:\\Revature\\Pizzabox.domain\\Pizzaboxdomain.csproj",
+      "projectPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.domain\\Pizzaboxdomain.csproj",
       "packagesPath": "C:\\Users\\Akash\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\Pizzabox.domain\\obj\\",
+      "outputPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
