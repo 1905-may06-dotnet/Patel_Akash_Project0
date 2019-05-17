@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using Pizzaboxdata.Data;
 
 namespace Pizzaboxdomain
 {
@@ -10,10 +12,11 @@ namespace Pizzaboxdomain
         double totalpizzacost = 0.0;
         List<Pizza> pizzalist = new List<Pizza>();
         bool isValidOrder = true;
+        DateTime OrderDatetime;
 
 
         //main method used to order a pizza
-        public void Order()
+        public void Order(PizzaUser user, String Location, PizzaContext PC)
         {
             bool isOrderFinished = false; //bool to check if user is finished with their order
             string tempstring = ""; //string used to check user input or hold temp data
@@ -43,24 +46,39 @@ namespace Pizzaboxdomain
                     }
                     else if (tempstring.Equals("o"))
                     {
-                        Pizza piz = new Pizza();
-                        piz.OrderLargeVegPizza();
-                        pizzalist.Add(piz);
-                        cost = computeCost();
-                        Console.WriteLine($"You ordered a pizza with: {piz.showPizza()}");
-                        Console.WriteLine($"You have ordered {pizzalist.Count} pizza(s) so far, with cost {cost}");
-                        Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
+                    Pizza piz = new Pizza();
+                    piz.OrderLargeVegPizza();
+                    pizzalist.Add(piz);
+                    cost = computeCost();
+                    //determine how many pizzas we have so far
+                    int sumpizza = 0;
+                    foreach (var pizza in pizzalist)
+                    {
+                        sumpizza += pizza.quantity;
+
+                    }
+                    Console.WriteLine($"You ordered a pizza with: {piz.showPizza()}");
+                    Console.WriteLine($"You have ordered {sumpizza} pizza(s) so far, with cost {cost}");
+                    Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
 
                     }
                 else if (tempstring.Equals("c"))
                 {
-                        Pizza piz = new Pizza();
-                        piz.OrderPizza();
-                        pizzalist.Add(piz);
-                        cost = computeCost();
-                        Console.WriteLine($"You ordered a pizza with: {piz.showPizza()}");
-                        Console.WriteLine($"You have ordered {pizzalist.Count} pizza(s) so far, with cost {cost}");
-                        Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
+                    Pizza piz = new Pizza();
+                    piz.OrderPizza();
+                    pizzalist.Add(piz);
+                    cost = computeCost();
+                    //determine how many pizzas we have so far
+                    int sumpizza = 0;
+                    foreach (var pizza in pizzalist)
+                    {
+                        sumpizza += pizza.quantity;
+
+                    }
+
+                    Console.WriteLine($"You ordered a pizza with: {piz.showPizza()}");
+                    Console.WriteLine($"You have ordered {sumpizza} pizza(s) so far, with cost {cost}");
+                    Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
 
                 }
                 else if (tempstring.Equals("f"))
@@ -70,10 +88,60 @@ namespace Pizzaboxdomain
                         {
                         Console.WriteLine($"Pizza {I + 1}: {pizzalist[I].showPizza()}");
                         }
+                        //print the total cost
+                        cost = computeCost();
+                        Console.WriteLine($"Your order will cost: {cost}");
                         Console.WriteLine("Is this order correct? enter y for yes or any other key for no");
                         if(Console.ReadLine().Equals("y"))
                         {
                         isOrderFinished = true;
+                        //enter order in the database
+
+                        //step 0, find out what value i want for primary key since SQL wont do it for me
+                        int orderID = 0;
+                        OrderTable x = PC.OrderTable.OrderByDescending(y => y.OrderIdPk).FirstOrDefault<OrderTable>();
+                        if(x==null)
+                        {
+                            orderID = 0;
+                        }
+                        else
+                        {
+                            orderID = x.OrderIdPk + 1;
+                        }
+                        
+
+
+                        //step 1, enter the Order into the OrderTable
+                        OrderTable O = new OrderTable() { UsernameFk = user.username, LocationFk = Location, OrderDateTime = DateTime.Now, OrderTotalCost = cost, OrderIdPk = orderID};
+                        PC.OrderTable.Add(O);
+                        PC.SaveChanges();
+
+
+
+                        
+                        //step 1.5 find out what value i want for primary key for pizzaDB since SQL wont do it for me
+                        int PizzaID = 0;
+                        PizzaTable z = PC.PizzaTable.OrderByDescending(y => y.PizzaIdPk).FirstOrDefault<PizzaTable>();
+                        if (z == null)
+                        {
+                            PizzaID = 0;
+                        }
+                        else
+                        {
+                            PizzaID = z.PizzaIdPk + 1;
+                        }
+
+
+                        //step 2, enter the Pizzas into the PizzaTable
+                        for (int i = 0; i<pizzalist.Count(); i++)
+                         {
+                            
+                            PizzaTable P = new PizzaTable() { PizzaString = pizzalist[i].showPizza(), PizzaCount = pizzalist[i].quantity, OrderIdFk = orderID, PizzaIdPk = PizzaID+i};
+                            PC.PizzaTable.Add(P);
+                            PC.SaveChanges();
+                         }
+                        
+    
                         }
                         else
                         {

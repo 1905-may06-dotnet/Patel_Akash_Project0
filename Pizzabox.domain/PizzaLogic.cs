@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Pizzaboxdomain;
+using Pizzaboxdata.Data;
 
 
 namespace Pizzaboxdomain
@@ -12,7 +13,8 @@ namespace Pizzaboxdomain
 
         Console.WriteLine("Hello, welcome to Pizza World!");
         string tempstring; //used to check user input
-        PizzaUser use1 = new PizzaUser();
+            PizzaContext PC = new PizzaContext();
+            PizzaUser use1 = new PizzaUser(PC);
              do
              {
                 Console.WriteLine("Enter 1 to see available locations, 2 to view order history, or 3 to log out");
@@ -24,12 +26,12 @@ namespace Pizzaboxdomain
                     PizzaLocations PizLocation = new PizzaLocations();
                     String OrderLocation = PizLocation.selectLocation();
                     PizzaOrder CustomerOrder = new PizzaOrder();
-                    CustomerOrder.Order();
-                }
+                    CustomerOrder.Order(use1,OrderLocation,PC);
+                 }
                  else if (tempstring.Equals("2"))
                  {
                      Console.WriteLine("viewing order history has not yet been implemented");
-                    Console.WriteLine("Enter 1 to see available locations, 2 to view order history, or 3 to log out");
+                    use1.showHistory(PC);
 
                 }
                 else if (tempstring.Equals("3"))
@@ -60,9 +62,11 @@ namespace Pizzaboxdomain
         public List<string> toppings = new List<string>();
         public int numToppings = 0;
         public string crust = "";
+        public int quantity = 0;
 
         public double GetPizzaCost(Pizza Piz)
         {
+            //inititalize variables used to compute cost
             double sizecost = 0.0;
             double crustcost = 0.0;
             double toppingcost = 0.0;
@@ -93,8 +97,8 @@ namespace Pizzaboxdomain
             }
 
             toppingcost = numToppings * 0.25;
-
-            return (sizecost + crustcost + toppingcost);
+            //multiply by quantity at the end
+            return (sizecost + crustcost + toppingcost)*Piz.quantity;
         }
 
         public string showPizza()
@@ -105,7 +109,8 @@ namespace Pizzaboxdomain
                 constring += str + ", ";
             }
 
-            return($"size: {size}, crust: {crust}, and toppings: {constring}");
+            //return full description of the pizza, this is also what will be stored in SQL.
+            return($"size: {size}, crust: {crust}, toppings: {constring} and quantity: {quantity}");
         }
 
         public void OrderPizza()
@@ -113,6 +118,7 @@ namespace Pizzaboxdomain
             OrderSize();
             OrderCrust();
             OrderToppings();
+            OrderQuantity();
         }
 
         public void OrderLargeVegPizza()
@@ -125,7 +131,42 @@ namespace Pizzaboxdomain
             toppings.Add("bellpepper");
             toppings.Add("spinache");
             toppings.Add("jalepeno");
+            OrderQuantity();
            
+        }
+
+        //this function allows the user to order more than 1 of the pizza they just bought
+        public void OrderQuantity()
+        {
+            int tempint=0; //int used to store order quantiy
+            string tempstring = ""; //string used to verify user input
+            bool cont = false; //bool used to see if loop should continue
+
+            //prompt user for quantity of pizzas they want
+            Console.WriteLine("How many orders of this pizza do you want?");
+            Console.WriteLine("NOTE: you cannot have more than 100 pizzas or have your order cost more than $5000");
+
+            //ensure that the user entered correct input for pizzas
+            do
+            {
+                tempstring = Console.ReadLine();
+                if (Int32.TryParse(tempstring, out tempint))
+                {
+                    quantity = tempint;
+                    Console.WriteLine($"You have ordered {quantity} pizza(s) of this type");
+                    cont = false;
+
+                }
+                else
+                {
+                    Console.WriteLine("You entered an incorrect value for how many orders of pizza you want");
+                    Console.WriteLine("NOTE: you cannot have more than 100 pizzas or have your order cost more than $5000");
+
+                    cont = true;
+                }
+            }
+            while (cont);
+
         }
 
         public void OrderSize()

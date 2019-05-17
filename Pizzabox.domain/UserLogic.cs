@@ -1,23 +1,21 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Text;
+
+//this entire section will be deleted and rewritten in the UserTable.cs class
 
 namespace Pizzaboxdomain
 {
     class PizzaUser
     {
-         
+
         //requirements      
-        /*- should be able to view its order history <- this should be in data
-       - should be able to only order from 1 location/day
-       - should be able to only order 1 time within a 2 hour period
-       - should be able to only order if an account exists*/
 
         //properties of a user;
         public DateTime lastOrder = new DateTime(2019, 5, 13, 13, 0, 15);
         public bool canorder = false;
-        private string username = "";
-        private string password = "";
+        internal string username = "";
+        internal string password = "";
         public bool isLoggedin = false;
 
         //constructor, it asks the user to either register or log in.
@@ -61,7 +59,8 @@ namespace Pizzaboxdomain
             isLoggedin = true;
         }
 
-        //register a new user
+
+
         public void register()
         {
             Console.WriteLine("Please enter your username");
@@ -71,6 +70,7 @@ namespace Pizzaboxdomain
             Console.WriteLine("Register successful! You have also been logged in!");
             isLoggedin = true;
         }
+
 
         public void logout()
         {
@@ -87,10 +87,10 @@ namespace Pizzaboxdomain
             bool location = false;
 
 
-           //this method is a bit wonky
-           int compare = 0; //int used to determine if user has ordered within last two hours
-           //Check if it has been 2 hours since the user last ordered a pizza
-           compare = (DateTime.Now).CompareTo(lastOrder.AddHours(2.00));
+            //this method is a bit wonky
+            int compare = 0; //int used to determine if user has ordered within last two hours
+                             //Check if it has been 2 hours since the user last ordered a pizza
+            compare = (DateTime.Now).CompareTo(lastOrder.AddHours(2.00));
             if (compare >= 0)
             {
                 twohours = true;
@@ -101,7 +101,7 @@ namespace Pizzaboxdomain
             }
 
             //check to see if the user has an account
-            if(password!=null && username!=null)
+            if (password != null && username != null)
             {
                 hasaccount = true;
             }
@@ -129,5 +129,6 @@ namespace Pizzaboxdomain
         }
     }
 
-   
+
 }
+*/
