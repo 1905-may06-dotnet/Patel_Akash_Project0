@@ -16,8 +16,6 @@ C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzabo
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.dll
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\obj\Debug\netcoreapp2.1\Pizzaboxdomain.pdb
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.deps.json
-C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.runtimeconfig.json
-C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.runtimeconfig.dev.json
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.dll
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdomain.pdb
 C:\Revature\Patel_Akash_Project0\Pizzabox.domain\bin\Debug\netcoreapp2.1\Pizzaboxdata.dll

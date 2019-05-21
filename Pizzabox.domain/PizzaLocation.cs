@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Pizzaboxdomain
 {
-    class PizzaLocations
+    public class PizzaLocations
     {
         //contains a list of all current locations
         List<string> locations = new List<string>();

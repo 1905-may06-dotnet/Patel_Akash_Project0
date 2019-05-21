@@ -1325,6 +1325,10 @@
         }
       },
       "Pizzaboxclient/1.0.0": {
+        "dependencies": {
+          "Pizzaboxdata": "1.0.0",
+          "Pizzaboxdomain": "1.0.0"
+        },
         "runtime": {
           "Pizzaboxclient.dll": {}
         }

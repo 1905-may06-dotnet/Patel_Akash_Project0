@@ -29,7 +29,14 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.data\\Pizzaboxdata.csproj": {
+                "projectPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.data\\Pizzaboxdata.csproj"
+              },
+              "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.domain\\Pizzaboxdomain.csproj": {
+                "projectPath": "C:\\Revature\\Patel_Akash_Project0\\Pizzabox.domain\\Pizzaboxdomain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -162,6 +169,7 @@
         "netcoreapp2.1": {
           "dependencies": {
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
