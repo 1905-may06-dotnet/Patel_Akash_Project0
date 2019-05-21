@@ -11,5 +11,11 @@ namespace Pizzaboxdata.Data
         public int? OrderIdFk { get; set; }
 
         public virtual OrderTable OrderIdFkNavigation { get; set; }
+
+        public void displayPizzaDetails()
+        {
+            Console.WriteLine($"Pizza: {PizzaString}");
+        }
+
     }
 }

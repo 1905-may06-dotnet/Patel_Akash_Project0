@@ -6,12 +6,12 @@ using Pizzaboxdata.Data;
 
 namespace Pizzaboxdomain
 {
-    class PizzaOrder:Pizza
+   public class PizzaOrder:Pizza
     {
         string LocationAddress = "";
-        double totalpizzacost = 0.0;
+       public double totalpizzacost = 0.0;
         List<Pizza> pizzalist = new List<Pizza>();
-        bool isValidOrder = true;
+       public bool isValidOrder = true;
         DateTime OrderDatetime;
 
 
@@ -20,7 +20,8 @@ namespace Pizzaboxdomain
         {
             bool isOrderFinished = false; //bool to check if user is finished with their order
             string tempstring = ""; //string used to check user input or hold temp data
-            double cost = 0.0;
+            double cost = 0.0; //used to track our total cost so far
+            int sumpizza = 0; //keep track of how many pizzas we have so far
 
             
                 //first, determine if the user wants to remove a pizza, order a preset pizza, or order a custom pizza
@@ -35,8 +36,18 @@ namespace Pizzaboxdomain
                         //check to see that we have pizzas to remove
                         if (pizzalist.Count > 0)
                         {
-                            removePizza();
-                            Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
+                        removePizza();
+                        //recompute cost
+                        cost = computeCost();
+                        //recompute pizza sum
+                        sumpizza = 0;
+                        foreach (var pizza in pizzalist)
+                        {
+                            sumpizza += pizza.quantity;
+
+                        }
+                        Console.WriteLine($"You have ordered {sumpizza} pizza(s) so far, with cost {cost}");
+                        Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
 
                         }
                     else
@@ -51,7 +62,7 @@ namespace Pizzaboxdomain
                     pizzalist.Add(piz);
                     cost = computeCost();
                     //determine how many pizzas we have so far
-                    int sumpizza = 0;
+                    sumpizza = 0;
                     foreach (var pizza in pizzalist)
                     {
                         sumpizza += pizza.quantity;
@@ -69,7 +80,7 @@ namespace Pizzaboxdomain
                     pizzalist.Add(piz);
                     cost = computeCost();
                     //determine how many pizzas we have so far
-                    int sumpizza = 0;
+                    sumpizza = 0;
                     foreach (var pizza in pizzalist)
                     {
                         sumpizza += pizza.quantity;
@@ -81,7 +92,8 @@ namespace Pizzaboxdomain
                     Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
 
                 }
-                else if (tempstring.Equals("f"))
+                    //check to see if order is valid count <= 100, and cost <= 5000 and user is done
+                else if (tempstring.Equals("f") && cost<=5000.00 && sumpizza <= 100)
                     {
                         //print the order to the user so they can verify whether or not it is correct
                         for(int I = 0; I<pizzalist.Count; I++)
@@ -140,6 +152,10 @@ namespace Pizzaboxdomain
                             PC.PizzaTable.Add(P);
                             PC.SaveChanges();
                          }
+
+                        //step 3, prompt user their order was successful
+
+                        Console.WriteLine("Your order was successful!");
                         
     
                         }
@@ -147,6 +163,15 @@ namespace Pizzaboxdomain
                         {
                         Console.WriteLine("Enter r to remove a pizza, o to order a preset pizza, c to order a custom pizza, or f to finish/preview your order");
                         }
+
+                    }
+                    else if(cost>5000.0)
+                    {
+                    Console.WriteLine("your cost is over $5000.00, please remove pizzas to get your cost lower");
+                    }
+                    else if(sumpizza>100)
+                    {
+                    Console.WriteLine("your pizza count is over 100, please remove pizzas to get your count lower");
 
                     }
                     else

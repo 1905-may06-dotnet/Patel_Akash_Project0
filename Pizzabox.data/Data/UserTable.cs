@@ -61,11 +61,28 @@ namespace Pizzaboxdata.Data
 
         public void showHistory(PizzaContext PC)
         {
+            int i = 0;
             var x = PC.OrderTable.Where<OrderTable>(u => u.UsernameFk.Equals(username)).ToList();
+            if(x == null)
+            {
+                Console.WriteLine("You have no order history");
+            }
             foreach (var obj in x)
             {
+                
                 obj.displayOrderDetails();
+                //x[0] contains the orderID primary key, so im searching the pizza table for entries that match the
+                //users order id
+                var y = PC.PizzaTable.Where<PizzaTable>(u => u.OrderIdFk.Equals(x[i].OrderIdPk));
+
+                foreach (var obj2 in y)
+                {
+                    obj2.displayPizzaDetails();
+                    
+                }
+                i += 1;
             }
+
         }
 
         //login a new user
@@ -157,7 +174,8 @@ namespace Pizzaboxdata.Data
         }
 
 
-
+        //This is a legacy method that has been overriden
+        /*
         public bool CheckOrderConditions(PizzaContext PC, string Location)
         {
             //initialize booleans to check all order conditions
@@ -246,7 +264,94 @@ namespace Pizzaboxdata.Data
             canorder = (twohours && hasaccount && location);
             return canorder;
         }
+        */
 
+        public bool CheckTwoHourCondition(PizzaContext PC)
+        {
+            //initialize booleans to check all order conditions
+            bool twohours = false;
+
+
+            //this method is a bit wonky
+            int compare = 0; //int used to determine if user has ordered within last two hours
+                             //Check if it has been 2 hours since the user last ordered a pizza
+
+            //step 1 determine when the user's last order was
+            //get the row of their last order by using firstordefault in conduction with an order by
+            OrderTable x = PC.OrderTable.Where<OrderTable>(u => u.UsernameFk == username).OrderByDescending(y => y.OrderDateTime).FirstOrDefault<OrderTable>();
+
+            //check to see if the user had a last order at all
+            if (x == null)
+            {
+                twohours = true;
+            }
+            else
+            {
+                //cast datetime in database to datetime time.
+                lastOrder = (DateTime)x.OrderDateTime;
+
+                //compare users last order plus 2 hours to current time.
+                compare = (DateTime.Now).CompareTo(lastOrder.AddHours(2.00));
+                if (compare >= 0)
+                {
+                    //this means that the users last order was at least 2 hours ago
+                    twohours = true;
+                }
+                else
+                {
+                    //this means the user has ordered within the last 2 hours
+                    twohours = false;
+                }
+            }
+
+            return twohours;
+        }
+
+
+        //this is the last method, used to prompt admin options
+        public int PromptAdmin()
+        {
+            //show to user the list of available toppings
+            int tempint = 0; //int used to verify user input for numtoppings
+            string tempstring = ""; //string used to store temp data / verify user input
+            int i = 0; //used to list out the number of each topping
+            bool cont = false; //boolean to determine if while loop to verify user input should continue
+            int adminchoice = 0; //choice for what the admin wants to do
+
+
+
+            //prompt admin on what choice they want to make
+            Console.WriteLine("Please enter 1 to view orders and sales, 2 to view inventory, 3 to view users, or 4 to logout");
+
+            //ensure that the user entered correct value for choice above
+            do
+            {
+                tempstring = Console.ReadLine();
+                if (Int32.TryParse(tempstring, out tempint))
+                {
+
+                    if (tempint >= 1 && tempint <= 4)
+                    {
+                        adminchoice = tempint;
+                        Console.WriteLine($"you chose option: {adminchoice}"); //show user their choice
+                        cont = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You entered an incorrect value.  Please enter a number between 1 and 4");
+                        cont = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You entered an incorrect value.  Please enter a number between 1 and 4");
+                    cont = true;
+                }
+            }
+            while (cont);
+
+            return adminchoice;
+        }
 
     }
 }

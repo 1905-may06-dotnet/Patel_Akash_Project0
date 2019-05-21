@@ -21,5 +21,10 @@ namespace Pizzaboxdata.Data
         public int? Jalapeno { get; set; }
 
         public virtual ICollection<OrderTable> OrderTable { get; set; }
+
+        public void displayLocationDetails()
+        {
+            Console.WriteLine($"Location: {LocationPk}, Mushrooms: {Mushrooms}, Onions: {Onions}, Spinache: {Spinache}, Jalapenos: {Jalapeno}, Bellpeppers: {Bellpepper}, Dough: {PizzaDough}, Cheese: {PizzaCheese}, Sauce: {PizzaSauce}");
+        }
     }
 }

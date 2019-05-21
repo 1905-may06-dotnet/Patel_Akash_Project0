@@ -25,6 +25,14 @@ namespace Pizzaboxdata.Data
             Console.WriteLine( $"Order ID: {OrderIdPk}, OrderTotalCost: {OrderTotalCost}, Date: {OrderDateTime}, Location: {LocationFk} ");
         }
 
+        //old legacy method
+        /*
+        public void displayUserDetails()
+        {
+            Console.WriteLine($"Username: {UsernameFk}");
+        }
+        */
+
     }
     
 }
